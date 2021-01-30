@@ -1,0 +1,251 @@
+.sidebar{
+	width: 30%;
+	height: 110vh;
+	position: relative;
+	overflow: scroll;
+	float: left;
+	display: inline;
+	background-color: lightgray;
+	text-align: center;
+}
+.sidebarItem{
+	width: 60%;
+	overflow: scroll;
+	height: 250px;
+	background-color: white;
+	position: relative;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	border-radius: 10px;
+	color: black;
+     text-transform: uppercase;
+     font-size: 13px;
+     font-family: 'Source Sans Pro', sans-serif;
+     letter-spacing: 2px;
+     list-style-type: none;
+	 text-align: center;
+}
+.mainCanvas{
+	position: relative;
+	width: 70%;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-color: white;
+	height: 110vh;
+	text-align: center;
+}
+html, body{
+	margin: 0px;
+}
+.colorInput{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+.colorInputGradient{
+	width: 40%;
+	height: 60%;
+	position: relative;
+	border-radius: 10px;
+	display: inline-block;
+}
+.goBack{
+	margin-top: 1vh;
+	margin-top: 1vh;
+	 color: black;
+     text-transform: uppercase;
+     font-size: 15px;
+     font-family: 'Source Sans Pro', sans-serif;
+     letter-spacing: 2px;
+     list-style-type: none;
+	 text-align: center;
+	 border-radius: 5px;
+	 text-decoration: none;
+	 border: none;
+	 outline:none;
+	 background-color: transparent;
+	 
+
+}
+
+
+
+/* button  */
+
+.home{
+	 margin-top: 1vh;
+	 color: black;
+     text-transform: uppercase;
+     font-size: 15px;
+     font-family: 'Source Sans Pro', sans-serif;
+     letter-spacing: 2px;
+     list-style-type: none;
+	 text-align: center;
+	 border-radius: 5px;
+	 text-decoration: none;
+	 border: none;
+	 outline:none;
+	 background-color: transparent;
+	 
+}
+
+.p{
+	color: black;
+     text-transform: uppercase;
+     font-size: 18px;
+     font-family: 'Source Sans Pro', sans-serif;
+     letter-spacing: 2px;
+     list-style-type: none;
+     text-align: center;
+}
+
+
+#textInput{
+	border: solid 1px black; 
+	width: 80%; 
+	height: 10%;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+	outline:none;
+	box-sizing: border-box;  
+	resize:none;
+}
+
+#fontColor{
+	border: solid 1px black; 
+	width: 80%; 
+	height: 10%;
+	outline:none;
+	box-sizing: border-box; 
+}
+
+#fonts {
+	border: solid 1px black; 
+	width: 80%; 
+	height: 10%;
+	outline:none;
+	box-sizing: border-box; 
+	box-shadow: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+
+
+}
+
+#fontsize{
+	width: 80%; 
+	height: 10%;
+}
+
+input[type="range"] {
+	width:80%;
+  }
+
+  #posx{
+	width: 20%;
+	border: solid 1px black; 
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+	outline: none;
+  }
+
+
+  /* BACKGROUND MENU STYLE */
+
+  #backgroundColor2{
+
+	width: 70%; 
+	height: 70%;
+	border-radius: 5px;
+	outline:none;
+
+  }
+
+  
+  .colorInputGradient{
+	border: solid 1px black; 
+	width: 20%; 
+	height: 70px;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+	outline:none;
+	box-sizing: border-box;  
+	resize:none;
+	padding: 0px;
+  }
+
+	#urlInput{
+		border: solid 1px black; 
+		width: 80%; 
+		height: 10%;
+		outline:none;
+		box-sizing: border-box;
+	  }
+	
+
+  /* remove ugly border default */
+  input[type=color]{
+	
+	border: none;
+	background: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: solid 1px #000; /*change color of the swatch border here DO NOT REMOVE*/
+}
+/*animations*/
+@keyframes fadeIn{
+	to{
+		opacity: 100%;
+	}
+	from{
+		opacity: 0%;
+	}
+}
+@keyframes spin{
+	to{
+		transform: rotate(0deg);
+	}
+	from{
+		transform: rotate(360deg);
+	}
+}
+@keyframes zoom{
+	to{
+		transform: scale(1);
+	}
+	from{
+		transform: scale(0);
+	}
+}
+@keyframes beat{
+	to{
+		transform: scale(1);
+	}
+	from{
+		transform: scale(1.1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

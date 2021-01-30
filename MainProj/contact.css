@@ -1,0 +1,138 @@
+html,body{
+    
+    width: 100%;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 50%;
+    background: url(background.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.content{
+    width: 100%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+
+nav{
+    width: 100%;
+
+
+
+}
+
+nav ul{
+    list-style: none;
+    background: rgba(0,0,0,0,0);
+    overflow: hidden;
+    color: black;
+    padding: 0;
+    text-align: right;
+    margin:0;
+    transition: 1s;
+
+ 
+}
+
+
+
+nav ul li{
+    display: inline-block;
+    padding:20px;
+
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:black;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+
+p{
+    color: black;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    margin: 25% 100px 20px 100px;
+    }
+    
+
+    /* get in touch */
+  
+   
+
+    #fname{
+        border: solid 1px black; 
+        width: 25%; 
+        height: 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: black;
+        outline:none;
+        box-sizing: border-box;  
+        resize:none;
+        display: block;
+
+
+    }
+
+    #lname{
+        border: solid 1px black; 
+        width:25%; 
+        height: 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: black;
+        outline:none;
+        box-sizing: border-box;  
+        resize:none;
+        display: block;
+
+
+    }
+
+    #subject{
+        border: solid 1px black; 
+        width:25%; 
+        height: 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: black;
+        outline:none;
+        box-sizing: border-box;  
+        resize:none;
+        display: block;
+    }
+
+    #submit{
+        border: solid 1px black; 
+        width:25%; 
+        height: 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: black;
+        outline:none;
+        box-sizing: border-box;  
+        resize:none;
+        background-color: transparent;
+        display: block;
+
+    }
+
+    .container-fluid{
+        margin-top: 100px ;
+        margin-left: 35%;
+
+
+}

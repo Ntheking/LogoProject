@@ -1,0 +1,11 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #9D5B75;
+  transition: opacity 4000ms;
+  will-change: opacity;
+}
+
+.box.faded-out {
+  opacity: 0;
+}

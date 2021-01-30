@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="main.css">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+		<title>Logo</title>
+	</head>
+	<body>
+		<!-- sidebar -->
+		<div class="sidebar" id = "mainBar">
+			<!-- button to landing page-->			
+			<a href="indexLanding.html" class="home">Home</a>
+
+			<div class="sidebarItem" style="margin-top: 1vh; background-image: url(textIcon.png)" onclick = "changeBar('Text')">
+			</div>
+			<div class="sidebarItem" style="margin-top: 2vh; background-image: url(backgroundIcon.png)" onclick = "changeBar('Background')">
+			</div>
+			<div class="sidebarItem" style="margin-top: 2vh; background-image: url(shapeIcon.png)" onclick = "changeBar('Shapes')">
+			</div>
+			<div class="sidebarItem" style="margin-top: 2vh; height: 300px; margin-bottom: 10px; background-image: url(animIcon.png)" onclick = "changeBar('anim')">
+			</div>
+		</div>
+		<!-- text bar -->
+		<div class="sidebar" id="textBar" style="display: none;">
+			<button class="goBack" onclick="changeBar('main')">Main Menu</button>
+			<div class="sidebarItem" style="background-color: white; margin-top: 5vh; height: 130px;">
+				<button style="width: 40%; height:20px; margin-top: 2vh" onclick="createTextBox()">Create</button>
+				<button style="width: 40%; height:20px; margin-top: 2vh" onclick="deleteText()">Delete</button>
+			</div>
+			<div class ="sidebarItem" style="background-color: white; margin-top: 5vh; height: 300px">
+				<br>
+				<label for="inputText">Input Text</p>
+				<textarea name="inputText" id="textInput" onchange="setText(this)"></textarea>
+				<label for="fontColor">Change Color</p>
+				<input id ="fontColor" name="fontColor"  type="color" onchange="setTextColor(this)">
+				<br>
+				<br>
+				<label for="fonts">Choose a Font:</label>
+				<select name="fonts" id="fonts" onchange="changeTextFont(this)">
+  					<option value="arial">Arial</option>
+  					<option value="fantasy">Fantasy</option>
+  					<option value="cursive">Cursive</option>
+  					<option value="monospace">Monospace</option>
+				</select>
+				<br>
+				<br>
+				<label for="fontsize">Fontsize &#40;px:&#41; </label>
+				<input type="range" id="quantity" name="quantity" min="9" max="150" onchange="changeFontSize(this)">
+			</div>
+			
+			<div class ="sidebarItem" style="background-color: white; margin-top: 5vh; height: 130px; margin-bottom: 20px">
+				<br>
+				<label for="posx">X:</label>
+				<input id="posx" type="number" name="posx" onchange="setPositionText('x', this)">
+				<label for="posx">Y:</label>
+				<input id="posx" type="number" name="posx" onchange="setPositionText('y', this)">
+				<br>
+				<br>
+				<input type="radio" id="left" name="align" value="left" onchange="setTextAlign('left')">
+				<label for="left">Left</label>
+				<input type="radio" id="center" name="align" value="center" onchange="setTextAlign('center')">
+				<label for="center">Center</label>
+				<input type="radio" id="right" name="align" value="center" onchange="setTextAlign('right')">
+				<label for="right">Right</label> 
+			</div>
+		</div>
+		<div class="sidebar" id="shapeBar" style="display: none;">
+			<button class="goBack" onclick="changeBar('main')">Main Menu</button>
+			<div class="sidebarItem" style="margin-top: 2.6vh; height: 140px;">
+				<select style =" height: 30px; margin-top: 10px;" name="shapeType" id="selectShapeType">
+  					<option value="rectangle">Rectangle</option>
+  					<option value="parallelogram">Parallelogram</option>
+  					<option value="circle">Circle</option>
+				</select><br>
+				<button style="width: 40%; height:20px; margin-top: 2vh" onclick="createNewShape()">Create</button>
+				<button style="width: 40%; height:20px; margin-top: 2vh" onclick="deleteShape()">Delete</button>
+			</div>
+			<div class="sidebarItem" style="margin-top: 10px; height: 140px;">
+				<br>
+				<label for="width">W:</label>
+				<input type="number" style="width:20%; height: 10%" name="width" onchange="changeDimensionsLoc('w', this)">
+				<label for="height">H:</label>
+				<input type="number" style="width:20%; height: 10%" name="height" onchange="changeDimensionsLoc('h', this)">
+				<br>
+				<br>
+				<label for="posx">X:</label>
+				<input type="number" style="width:20%; height: 10%" name="posx" onchange="changeDimensionsLoc('x', this)">
+				<label for="posy">Y:</label>
+				<input type="number" style="width:20%; height: 10%" name="posy" onchange="changeDimensionsLoc('y', this)">
+				<br>
+				<br>
+				<label for="rot">Rotation:</label>
+				<input type="number" style="width:20%; height: 10%" name="rot" onchange="changeDimensionsLoc('r', this)">
+			</div>
+
+			<div class="sidebarItem"  style="margin-top: 10px; background-color: white; height: 130px">
+				<p  style="position: relative; top: 5px">Background Color</p>
+    				<input style="height: 30px"id="backgroundColor2" type="color" name="head" value="#FFFFFF"  class="colorInput" onchange="setImgBackground(this)">
+    			<br>
+    			<br>
+    			<label for="border">Border&#40px&#41:</label>
+    			<input type="number" style="width:15%; height: 10%" id = "borderW" name="border" onchange="setBorder(this)">
+    			<input type="color" style="width:20%; height: 10%" id = "borderC"name="borderColor" onchange="setBorder(this)">
+			</div>
+			<div class="sidebarItem" style="margin-top: 4vh; background-color: white; height: 130px">
+					<p>Gradient</p>
+					<input type="color" id="head" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(0,this)">
+					<input type="color" id="head" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(1,this)">
+			</div>
+			<div class="sidebarItem" style="margin-top: 4vh; background-color: white; height: 130px; margin-bottom: 20px")>
+				<div style="position: relative; top: 2vh">
+					<p>Input an Image Url</p>
+					<input type="url" id="urlInputImg" onchange="setImgFile(this)">
+					<br>
+					<br>
+					<input type="radio" id="cover" name="size" value="cover" onchange="setImgBackgroundSize('cover')">
+					<label for="cover">Cover</label>
+					<input type="radio" id="contain" name="size" value="contain" onchange="setImgBackgroundSize('contain')">
+					<label for="contain">Contain</label>
+				</div>
+			</div>
+		</div>
+		<div class="sidebar" id="backgroundBar" style="display: none;">
+			<button class="goBack" onclick="changeBar('main')">Main Menu</button>
+			<div class="sidebarItem"  style="margin-top: 2vh; background-color: white">
+				<p  style="position: relative; top: 5px">Background Color</p>
+    				<input id="backgroundColor2" type="color" id="head" name="head" value="#FFFFFF"  class="colorInput" onchange="setBackground(this)">
+			</div>
+			<div class="sidebarItem" style="margin-top: 8.32vh; margin-bottom: 20px; background-color: white; height: 130px">
+					<p style="margin-top: 10px">Gradient</p>
+					<input type="color" id="head" name="head" value="#FFFFFF" class="colorInputGradient" onchange="setGradientBackground(0,this)">
+					<input type="color" id="head" name="head" value="#FFFFFF" class="colorInputGradient" onchange="setGradientBackground(1,this)">
+			</div>
+			<div class="sidebarItem" style="margin-top: 8.32vh; margin-bottom: 20px; height: 140px; background-color: white")>
+				<div style="position: relative; top: 5px">
+					<p>Input an Image Url</p>
+					<input type="url" id="urlInput" onchange="setFile(this)">
+					<br>
+					<br>
+					<input type="radio" id="cover" name="size" value="cover" onchange="setBackgroundSize('cover')">
+					<label for="cover">Cover</label>
+					<input type="radio" id="contain" name="size" value="contain" onchange="setBackgroundSize('contain')">
+					<label for="contain">Contain</label>
+				</div>
+			</div>
+		</div>
+		<div class="sidebar" id="animBar" style="display: none">
+			<button class="goBack" onclick="changeBar('main')">Main Menu</button>
+			<div class="sidebarItem" style="margin-top: 20px; height: 130px;">
+				<select style =" height: 20px; margin-top: 10px;" name="animType" id="selectAnimType">
+  					<option value="fade">Fade</option>
+  					<option value="rotate">Rotate</option>
+  					<option value="beat">Heart Beat</option>
+  					<option value="zoom">Zoom In</option>
+				</select><br>
+				<button style="width: 40%; height:20px; margin-top: 10px" onclick="applyAnim('create')">Create</button>
+				<button style="width: 40%; height:20px; margin-top: 10px" onclick="applyAnim('delete')">Delete</button>
+			</div>
+			<div class="sidebarItem" style="margin-top: 23px; height: 220px; margin-bottom: 20px">
+				<label for="dur"> Duration:</label>
+				<input onchange="setDuration(this)" type ="number" id="duration" name="dur" style="width:20%; height: 10%; margin-top: 30px;"><br>
+				<label for="reps"> Repeats&#40 negative = &#8734&#41:</label>
+				<input onchange="setRepeats(this)" type ="number" id="duration" name="reps" style="width:20%; height: 10%; margin-top: 30px;"><br><br>
+				<button style="width: 40%; height:20px; margin-top: 20px" onclick="playAnim()">Play!</button>
+				<button style="width: 40%; height:20px; margin-top: 20px" onclick="stopAnim()">Stop!</button>
+			</div>
+		</div>
+		<div class="mainCanvas" id="canvas"></div>
+		<script src="script.js"></script>
+	</body>
+</html
