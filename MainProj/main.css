@@ -152,11 +152,18 @@ input[type="range"] {
 	color: black;
 	outline: none;
   }
+  .posx{
+	width: 20%;
+	border: solid 1px black; 
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+	outline: none;
+  }
 
 
   /* BACKGROUND MENU STYLE */
 
-  #backgroundColor2{
+ #backgroundColor2{
 
 	width: 70%; 
 	height: 70%;
@@ -164,7 +171,14 @@ input[type="range"] {
 	outline:none;
 
   }
+#shapeBackgroundCol{
 
+	width: 70%; 
+	height: 70%;
+	border-radius: 5px;
+	outline:none;
+
+  }
   
   .colorInputGradient{
 	border: solid 1px black; 

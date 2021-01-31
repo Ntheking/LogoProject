@@ -103,6 +103,7 @@ function setBackground(obj){
 
 
 let gradientColors = ['white', 'white'];
+let gradientImgColors = ['#FFFFFF', '#FFFFFF'];
 function setGradientBackground(index, obj){
 	gradientColors[index] = obj.value;
 	console.log(gradientColors[index]);
@@ -127,12 +128,76 @@ function createTextBox(){
 	canvas.appendChild(hold);
 	currentText=hold;
 }
+function parseHtmlColorString(rgbString){
+	if(rgbString == ''){
+		//console.log('black');
+		return '#000000';
+	}
+	let truCol = rgbString.substring(4, rgbString.length);
+	//truCol = truCol.slice(0, -1);
+	console.log(truCol);
+	let vals = '#';
+	let curStr = '';
+	for(let i = 0; i < truCol.length; i++){
+		if(truCol[i] == ',' || truCol[i]==')'){
+			let hold = parseInt(curStr);
+			hold = hold.toString(16);
+			if(hold.length == 1){
+				hold = '0' + hold;
+			}
+			vals +=hold;
+			curStr = '';
+			continue;
+		}
+		curStr += truCol[i];
+	}
+	//console.log(vals);
+	return vals;
+}
+function finishGradientParse(truCol){
+	let vals = '#';
+	let curStr = '';
+	for(let i = 0; i < truCol.length; i++){
+		if(truCol[i] == ',' || truCol[i]==')'){
+			let hold = parseInt(curStr);
+			hold = hold.toString(16);
+			if(hold.length == 1){
+				hold = '0' + hold;
+			}
+			vals +=hold;
+			curStr = '';
+			continue;
+		}
+		curStr += truCol[i];
+	}
+	return vals;
+}
+function fixDefault(def, val){
+	if(val == ''){
+		return def;
+	}
+	return val;
+}
+function removePx(def, val){
+	if(val == ''){
+		val = def;
+	}
+	val = val.substring(0, val.length-2);
+	console.log(val);
+	return val;
+}
+
 
 
 function setCurrent(obj){
 	currentText=obj;
 	currentAnimObj = obj;
 	document.getElementById("textInput").value = currentText.innerHTML;
+	document.getElementById("fontColor").value = parseHtmlColorString(currentText.style.color);
+	document.getElementById("fonts").value = fixDefault('arial', currentText.style.fontFamily);
+	document.getElementById('fontsize').value = removePx('30px', currentText.style.fontSize);
+	document.getElementById('posTexty').value = removePx('0px', currentText.style.top);
+	document.getElementById('posTextx').value = removePx('0px', currentText.style.left);
 }
 function setText(input){
 	currentText.innerHTML = input.value;
@@ -169,9 +234,9 @@ function setImgBackground(obj){
 		currentShape.style.backgroundImage = 'none';
 }
 function setImgGradientBackground(index, obj){
-	gradientColors[index] = obj.value;
-	console.log(gradientColors[index]);
-	currentShape.style.backgroundImage = "linear-gradient(" + gradientColors[0] + "," + gradientColors[1] + ")";
+	gradientImgColors[index] = obj.value;
+	console.log(gradientImgColors[index]);
+	currentShape.style.backgroundImage = "linear-gradient(" + gradientImgColors[0] + "," + gradientImgColors[1] + ")";
 }
 function setImgFile(obj){
 	console.log(obj.value);
@@ -190,7 +255,14 @@ function setBorder(obj){
 function deleteShape(){
 	currentShape.remove();
 }
-
+function removeOuterChars(str, start, end, def){
+	if(str == ''){
+		console.log('def');
+		return def;
+	}
+	console.log(str);
+	return str.substring(start, str.length-(end));
+}
 //go back button to landing page
 
 function createNewShape(){
@@ -211,10 +283,29 @@ function createNewShape(){
  	}
  	currentShape=shape;
  	currentAnimObj=shape;
+
  }
 function setCurrentShape(obj){
  	currentShape = obj;
  	currentAnimObj = obj;
+ 	document.getElementById('shapeWidth').value = removePx('100px',currentShape.style.width);
+ 	document.getElementById('shapeHeight').value = removePx('100px',currentShape.style.height);
+ 	document.getElementById('shapePosy').value = removePx('100px',currentShape.style.top);
+ 	document.getElementById('shapePosx').value = removePx('100px',currentShape.style.left);
+ 	document.getElementById('shapeRot').value = removeOuterChars(currentShape.style.transform, 7, 4, '0');
+ 	document.getElementById('shapeBackgroundCol').value = parseHtmlColorString(currentShape.style.backgroundColor);
+ 	document.getElementById('borderW').value = removePx('0px', currentShape.style.borderWidth);
+ 	document.getElementById('borderC').value = parseHtmlColorString(currentShape.style.borderColor);
+ 	if(currentShape.style.backgroundImage[0] == 'u'){
+ 		document.getElementById('urlInputImg').value = removeOuterChars(currentShape.style.backgroundImage, 4, 1, '');
+ 	}else{
+ 		let temp = removeOuterChars(currentShape.style.backgroundImage, 16, 1, '');
+ 		let breakPoint = temp.indexOf('),');
+ 		console.log(temp.substring(4, breakPoint+1));
+ 		console.log(temp.substring(breakPoint+7, temp.length));
+ 		document.getElementById('shapeGrad1').value = finishGradientParse(temp.substring(4, breakPoint+1));
+ 		document.getElementById('shapeGrad2').value = finishGradientParse(temp.substring(breakPoint+7, temp.length));
+ 	}
  }
 function changeDimensionsLoc(type, obj){
  	if(type == 'r'){

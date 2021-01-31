@@ -46,25 +46,25 @@
 				<br>
 				<br>
 				<label for="fontsize">Fontsize &#40;px:&#41; </label>
-				<input type="range" id="quantity" name="quantity" min="9" max="150" onchange="changeFontSize(this)">
+				<input type="range" id="fontsize" name="quantity" min="9" max="150" onchange="changeFontSize(this)">
 			</div>
 			
 			<div class ="sidebarItem" style="background-color: white; margin-top: 5vh; height: 130px; margin-bottom: 20px">
 				<br>
 				<label for="posx">X:</label>
-				<input id="posx" type="number" name="posx" onchange="setPositionText('x', this)">
+				<input id="posTextx" type="number" class="posx" name="posx" onchange="setPositionText('x', this)">
 				<label for="posx">Y:</label>
-				<input id="posx" type="number" name="posx" onchange="setPositionText('y', this)">
+				<input id="posTexty" type="number" class="posx" name="posx" onchange="setPositionText('y', this)">
 				<br>
 				<br>
 				<input type="radio" id="left" name="align" value="left" onchange="setTextAlign('left')">
 				<label for="left">Left</label>
 				<input type="radio" id="center" name="align" value="center" onchange="setTextAlign('center')">
-				<label for="center">Center</label>
-				<input type="radio" id="right" name="align" value="center" onchange="setTextAlign('right')">
+				<label for="center">Center</label><br>
+				<input type="radio" id="right" name="align" value="right" onchange="setTextAlign('right')">
 				<label for="right">Right</label> 
 			</div>
-		</div>
+		</div>r
 		<div class="sidebar" id="shapeBar" style="display: none;">
 			<button class="goBack" onclick="changeBar('main')">Main Menu</button>
 			<div class="sidebarItem" style="margin-top: 2.6vh; height: 140px;">
@@ -79,24 +79,24 @@
 			<div class="sidebarItem" style="margin-top: 10px; height: 140px;">
 				<br>
 				<label for="width">W:</label>
-				<input type="number" style="width:20%; height: 10%" name="width" onchange="changeDimensionsLoc('w', this)">
+				<input id="shapeWidth" type="number" style="width:20%; height: 10%" name="width" onchange="changeDimensionsLoc('w', this)">
 				<label for="height">H:</label>
-				<input type="number" style="width:20%; height: 10%" name="height" onchange="changeDimensionsLoc('h', this)">
+				<input id="shapeHeight" type="number" style="width:20%; height: 10%" name="height" onchange="changeDimensionsLoc('h', this)">
 				<br>
 				<br>
 				<label for="posx">X:</label>
-				<input type="number" style="width:20%; height: 10%" name="posx" onchange="changeDimensionsLoc('x', this)">
+				<input id="shapePosx" type="number" style="width:20%; height: 10%" name="posx" onchange="changeDimensionsLoc('x', this)">
 				<label for="posy">Y:</label>
-				<input type="number" style="width:20%; height: 10%" name="posy" onchange="changeDimensionsLoc('y', this)">
+				<input id="shapePosy" type="number" style="width:20%; height: 10%" name="posy" onchange="changeDimensionsLoc('y', this)">
 				<br>
 				<br>
 				<label for="rot">Rotation:</label>
-				<input type="number" style="width:20%; height: 10%" name="rot" onchange="changeDimensionsLoc('r', this)">
+				<input id="shapeRot" type="number" style="width:20%; height: 10%" name="rot" onchange="changeDimensionsLoc('r', this)">
 			</div>
 
 			<div class="sidebarItem"  style="margin-top: 10px; background-color: white; height: 130px">
 				<p  style="position: relative; top: 5px">Background Color</p>
-    				<input style="height: 30px"id="backgroundColor2" type="color" name="head" value="#FFFFFF"  class="colorInput" onchange="setImgBackground(this)">
+    				<input id="shapeBackgroundCol" style="height: 30px"id="backgroundColor2" type="color" name="head" value="#FFFFFF"  class="colorInput" onchange="setImgBackground(this)">
     			<br>
     			<br>
     			<label for="border">Border&#40px&#41:</label>
@@ -105,8 +105,8 @@
 			</div>
 			<div class="sidebarItem" style="margin-top: 4vh; background-color: white; height: 130px">
 					<p>Gradient</p>
-					<input type="color" id="head" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(0,this)">
-					<input type="color" id="head" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(1,this)">
+					<input type="color" id="shapeGrad1" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(0,this)">
+					<input type="color" id="shapeGrad2" name="head" value="#FFFFFF"  class="colorInputGradient" onchange="setImgGradientBackground(1,this)">
 			</div>
 			<div class="sidebarItem" style="margin-top: 4vh; background-color: white; height: 130px; margin-bottom: 20px")>
 				<div style="position: relative; top: 2vh">
